@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 export default createStore({
   state: {
@@ -14,6 +15,17 @@ export default createStore({
     storeUserInApp(state, theUser) {
       state.user = theUser;
     },
+
+    storeDrivers(state, drivers) {
+      state.drivers = drivers;
+    },
   },
-  actions: {},
+  actions: {
+    getDrivers({ commit }) {
+      axios.get("/drivers").then((aResponse) => {
+        console.log("response in /drivers", aResponse);
+        commit("storeDrivers", aResponse.data);
+      });
+    },
+  },
 });
