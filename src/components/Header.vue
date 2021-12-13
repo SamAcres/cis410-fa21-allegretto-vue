@@ -23,7 +23,7 @@
               >Drivers</router-link
             >
           </li>
-          <li class="nav-item">
+          <li v-if="auth" class="nav-item">
             <router-link
               class="nav-link active"
               aria-current="page"
@@ -31,13 +31,13 @@
               >My Account</router-link
             >
           </li>
-          <li class="nav-item">
+          <li v-if="!auth" class="nav-item">
             <router-link class="nav-link active" aria-current="page" to="/login"
-              ><button class="btn btn-warning">Login</button>
+              ><button class="btn btn-warning" @click="onLogout">Login</button>
             </router-link>
           </li>
 
-          <li class="nav-item">
+          <li v-if="!auth" class="nav-item">
             <router-link
               class="nav-link active"
               aria-current="page"
@@ -48,7 +48,7 @@
             </router-link>
           </li>
 
-          <li class="nav-item">
+          <li v-if="auth" class="nav-item">
             <button class="btn btn-warning">Logout</button>
           </li>
         </ul>
@@ -57,6 +57,20 @@
   </nav>
 </template>
 
+<script>
+export default {
+  computed: {
+    auth() {
+      return this.$store.state.token;
+    },
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch("logout");
+    },
+  },
+};
+</script>
 <style scoped>
 .navbar-nav {
   align-items: center;
