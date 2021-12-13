@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Review a Driver</h1>
+    <h1>Request a Ride</h1>
   </div>
 </template>
 

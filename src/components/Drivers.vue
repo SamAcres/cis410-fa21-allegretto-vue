@@ -19,7 +19,7 @@
           <th>{{ aDriver.DriverPK }}</th>
           <th>{{ aDriver.VehicleType }}</th>
           <th>
-            <router-link :to="`/drivers/${aDriver.DriverPK}`"
+            <router-link :to="`/Drivers/${aDriver.DriverPK}`"
               ><button class="btn btn-primary">Details</button></router-link
             >
           </th>
