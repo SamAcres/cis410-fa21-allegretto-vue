@@ -22,7 +22,7 @@
     </div>
     <br />
 
-    <router-link v-if="auth" :to="`/movies/${this.$route.params.pk}/reviews`"
+    <router-link v-if="auth" :to="`/drivers/${this.$route.params.pk}/review`"
       ><button class="btn btn-success">Call for a ride</button></router-link
     >
     <router-link v-else :to="`/login`"
@@ -30,6 +30,8 @@
         Sign in to call for a ride
       </button></router-link
     >
+    <br /><br />
+    <router-view />
   </div>
 </template>
 
