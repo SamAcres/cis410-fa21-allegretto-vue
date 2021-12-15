@@ -70,7 +70,7 @@ export default {
       };
 
       axios
-        .post("/review", myRide, {
+        .post("/rides", myRide, {
           headers: {
             Authorization: `Bearer ${this.$store.state.token}`,
           },
